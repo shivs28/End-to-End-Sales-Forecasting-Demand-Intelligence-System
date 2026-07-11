@@ -22,7 +22,7 @@ page = st.sidebar.selectbox("Navigate to", [
     "Product Demand Segments"
 ])
 
-# ── Page 1: Sales Overview ─────────────────────────────────────
+#  Page 1: Sales Overview 
 if page == "Sales Overview":
     st.title("Sales Overview Dashboard")
 
@@ -44,7 +44,7 @@ if page == "Sales Overview":
     st.subheader("Sales by Region")
     st.bar_chart(filtered.groupby("Region")["Sales"].sum())
 
-# ── Page 2: Forecast Explorer ──────────────────────────────────
+#  Page 2: Forecast Explorer 
 elif page == "Forecast Explorer":
     st.title("Forecast Explorer")
 
@@ -77,7 +77,7 @@ elif page == "Forecast Explorer":
     st.metric("MAE",  "See notebook Task 3")
     st.metric("RMSE", "See notebook Task 3")
 
-# ── Page 3: Anomaly Report ─────────────────────────────────────
+#  Page 3: Anomaly Report 
 elif page == "Anomaly Report":
     from sklearn.ensemble import IsolationForest
 
@@ -98,7 +98,7 @@ elif page == "Anomaly Report":
     st.subheader("Detected Anomaly Dates")
     st.dataframe(anom.reset_index()[["Order Date","Sales"]])
 
-# ── Page 4: Product Demand Segments ───────────────────────────
+#  Page 4: Product Demand Segments 
 elif page == "Product Demand Segments":
     from sklearn.cluster import KMeans
     from sklearn.preprocessing import StandardScaler
